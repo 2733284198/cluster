@@ -1,0 +1,61 @@
+---
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+vms:
+  # VM1
+  - type: nginx # nginx / apache / database
+    name: "cluster-nginx"
+    cpus: 1
+    memory: 256
+    networks:
+      - type: "private_network"
+        ip: "192.168.10.20"
+    ports:
+      - send: 80
+        to: 80
+    proxys:
+      - map: www.cluster.com
+        site:
+          - send: www.domain1.com
+            to: 192.168.10.21
+          - send: www.domain2.com
+            to: 192.168.10.22
+  # VM2
+  - type: apache # nginx / apache / database
+    name: "cluster-apache1"
+    cpus: 1
+    memory: 512
+    networks:
+      - type: "private_network"
+        ip: "192.168.10.21"
+    folders:
+      - map: ~/code
+        to: /var/www/html/code
+    sites:
+      - map: www.domain1.com
+        to: /var/www/html/code/item1_path
+  # VM3
+  - type: apache # nginx / apache / database
+    name: "cluster-apache2"
+    cpus: 1
+    memory: 512
+    networks:
+      - type: "private_network"
+        ip: "192.168.10.22"
+    folders:
+      - map: ~/code
+        to: /var/www/html/code
+    sites:
+      - map: www.domain2.com
+        to: /var/www/html/code/item2_path
+  # VM4
+  - type: database # nginx / apache / database
+    name: "cluster-database"
+    cpus: 1
+    memory: 1024
+    networks:
+      - type: "private_network"
+        ip: "192.168.10.25"
+    databases:
+      - cluster
