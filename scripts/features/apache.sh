@@ -36,11 +36,3 @@ sudo firewall-cmd --permanent --add-service=https
 sudo systemctl restart firewalld
 
 echo "firewall Start complete"
-
-# sudo su
-
-# mkdir /etc/httpd/sites-available
-
-# echo 'IncludeOptional sites-available/*.conf' >> /etc/httpd/conf/httpd.conf
-
-# exit
