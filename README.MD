@@ -1,8 +1,8 @@
 # Welcome to use
 
-> Note: This version corresponds to v1.0.3 of vagrant box, Problems found during use, welcome issues
+> Note: This version corresponds to v1.0.1 of vagrant box, Problems found during use, welcome issues
 
-[中文](https://github.com/CoderMrPu/cluster/blob/master/README-ZH_CN.MD)
+[中文文档](https://github.com/CoderMrPu/cluster/blob/master/README-ZH_CN.MD)
 
 ### Clone the project
 
@@ -31,6 +31,7 @@ cd cluster
 > configure according to your needs
 
 - type (Set the virtual machine type, nginx or apache or database, nginx must be used together with apache, apache and database can be used separately, apache contains php, database contains MySQL and Redis)
+- alone (alone host mode, apache type used, default false)
 - name (Set the name of the virtual machine, can not be renamed)
 - cpus (Set the number of virtual machine CPU)
 - memory (Set the amount of virtual machine memory)

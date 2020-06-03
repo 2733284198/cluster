@@ -23,6 +23,7 @@ vms:
             to: 192.168.10.22
   # VM2
   - type: apache # nginx / apache / database
+    #alone: true # Use as a alone host(Can only be apache)
     name: "cluster-apache1"
     cpus: 1
     memory: 512

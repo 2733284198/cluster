@@ -1,6 +1,6 @@
 # 欢迎使用
 
-> 注意：此版本对应 vagrant box 的 v1.0.3，使用中发现问题欢迎issues
+> 注意：此版本对应 vagrant box 的 v1.0.1，使用中发现问题欢迎issues
 
 ### 克隆项目
 
@@ -29,6 +29,7 @@ cd cluster
 > 根据自己的需求来配置
 
 - type （设置虚拟机类型，nginx或者apache或者database，nginx必须配合apache一起使用，apache和database可以单独使用，apache包含php，database包含MySQL和Redis）
+- alone（独立主机模式，apache类型使用，默认false）
 - name （设置虚拟机的名称，不能重名）
 - cpus （设置虚拟机cpu数）
 - memory （设置虚拟机内存量）

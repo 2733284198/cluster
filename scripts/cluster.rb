@@ -127,6 +127,14 @@ class Cluster
 								s.path = script_dir + '/features/apache.sh'
 							end
 
+							# If it is a alone host
+							alone = vms['alone'] ||= false
+							if alone == true
+							    machine.vm.provision 'shell' do |s|
+                                	s.path = script_dir + '/features/database.sh'
+                                end
+							end
+
 							machine.vm.provision 'shell' do |s|
                                 s.path = script_dir + '/clear-apache.sh'
                             end
